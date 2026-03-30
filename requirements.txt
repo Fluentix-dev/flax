@@ -1,0 +1,6 @@
+pyexcel
+pyexcel-xlsx
+pyexcel-ods3
+flask
+aiosmtplib
+webbrowser
