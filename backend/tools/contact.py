@@ -21,7 +21,7 @@ class ContactChannel(Enum):
     PhoneNumber = auto()
     Link = auto()
 
-    def __str__(self):
+    def __repr__(self):
         return f"<contactChannel>{self.name}</>"
 
 
@@ -29,29 +29,27 @@ class ContactInfo:
     """
     The data to contact that person.
     """
-    def __init__(self, contactChannel: ContactChannel, reciever: str, header: str, content: str):
+    def __init__(self, contactChannel: ContactChannel, reciever: str):
         self.reciever = reciever
-        self.header = header
-        self.content = content
         self.contactChannel = contactChannel
     
 
-    def __str__(self):
-        return f"<ContactInfo>{self.contactChannel}<reciever>{self.reciever}</><header>{self.header}</><content>{self.content}</>"
+    def __repr__(self):
+        return f"<ContactInfo>{self.contactChannel}<reciever>{self.reciever}</></>"
 
 
 class Contact:
     @staticmethod
-    def Contact(contactInfo: ContactInfo):
+    def Contact(contactInfo: ContactInfo, msg: str, header: str = ""):
         """
         Contacts the person with given contact info.
         """
 
         match contactInfo.contactChannel:
             case ContactChannel.Email:
-                asyncio.run(Contact.ContactEmail(contactInfo.reciever, contactInfo.header, contactInfo.content))
+                asyncio.run(Contact.ContactEmail(contactInfo.reciever, msg, header))
             case ContactChannel.PhoneNumber:
-                asyncio.run(Contact.ContactPhone(contactInfo.reciever, contactInfo.content))
+                asyncio.run(Contact.ContactPhone(contactInfo.reciever, msg))
 
     @staticmethod
     async def ContactEmail(email: str, header: str, msg: str):
@@ -98,17 +96,15 @@ class Contact:
     @staticmethod
     async def OpenLink(link: str):
         """
-        welcome.py memorial
-
-        The one incident where computers in my school's computer lab got fucked up
+        Opens a link
         """
-        webbrowser.open_new(link) # welcome.py memorial...
+        webbrowser.open_new(link)
 
 
-    def __str__(self):
+    def __repr__(self):
         return f"<function>Contact</>"
 
 
 if __name__ == '__main__':
-    an = ContactInfo(ContactChannel.Email, "iaminfinityiqcoding@gmail.com", "Test msg from app", "testing12345")
-    Contact.Contact(an)
+    an = ContactInfo(ContactChannel.Email, "iaminfinityiqcoding@gmail.com")
+    Contact.Contact(an, "test")

@@ -4,5 +4,5 @@ class Role:
         self.description = roleDescription
         self.id = roleId
 
-    def __str__(self):
+    def __repr__(self):
         return f"<Role><name>{self.name}</><description>{self.description}</><id>{self.id}</></>"

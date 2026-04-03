@@ -3,3 +3,5 @@ pyexcel-xlsx
 pyexcel-ods3
 aiosmtplib
 customtkinter
+matplotlib
+pillow

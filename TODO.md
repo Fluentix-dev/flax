@@ -1,5 +1,5 @@
 # Neccessaries
-[ ] Generic classes to define a school
+[X] Generic classes to define a school
 
 # Application
 [ ] Gather the stats for the school
@@ -15,3 +15,6 @@ We are gonna make a new data file for the app (.flax) that stores everything in 
 [ ] Export student data to excel, csv, etc
 [ ] Import student data from excel, csv, etc
 [ ] Make our data unhackable
+
+# Frontend (customtkinter)
+[ ] Login/Sign up screen

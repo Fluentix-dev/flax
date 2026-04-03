@@ -4,8 +4,8 @@ Describes a class (or a classroom).
 
 from enum import Enum, auto
 from typing import List
-from student import Student
-from teacher import Teacher
+from .student import Student
+from .teacher import Teacher
 
 class ClassroomType(Enum):
     """
@@ -17,7 +17,7 @@ class ClassroomType(Enum):
     Homeroom = auto(),
     Both = auto()
 
-    def __str__(self):
+    def __repr__(self):
         return f"<ClassroomType>{self.name}</>"
 
 
@@ -32,5 +32,12 @@ class Class:
         self.classroomType = classroomType
     
 
-    def __str__(self):
+    def __repr__(self):
         return f"<Class><students>{self.students}</><teachers>{self.teachers}</><id>{self.id}</><classroomType>{self.classroomType}</></>"
+    
+
+    def AddStudent(self, student: Student):
+        self.students.append(student)
+    
+    def AddTeacher(self, teacher: Teacher):
+        self.teachers.append(teacher)

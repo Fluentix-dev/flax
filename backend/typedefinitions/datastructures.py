@@ -26,5 +26,5 @@ class Date:
         return date.day == self.day and date.month == self.month
     
     
-    def __str__(self):
+    def __repr__(self):
         return f"<Date><day>{self.day}</><month>{self.month}</><year>{self.year}</></>"

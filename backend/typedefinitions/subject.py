@@ -1,8 +1,10 @@
 """
 Base script for subject.
 """
+from typing import TYPE_CHECKING
 
-from student import Student
+if TYPE_CHECKING:
+    from .student import Student
 
 class Subject:
     """
@@ -13,7 +15,7 @@ class Subject:
         self.description = subjectDescription
         self.id = subjectId
 
-    def __str__(self):
+    def __repr__(self):
         return f"<Subject><name>{self.name}</><description>{self.description}</><id>{self.id}</></>"
 
 
@@ -26,5 +28,5 @@ class SubjectGrade:
         self.subject = subject
         self.score = score
 
-    def __str__(self):
+    def __repr__(self):
         return f"<SubjectGrade><student>{self.student}</><subject>{self.subject}</><score type='float'>{self.score}</></>"

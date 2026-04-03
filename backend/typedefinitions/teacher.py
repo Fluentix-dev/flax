@@ -2,10 +2,10 @@
 Describes a teacher
 """
 
-from person import Person, Gender
-from datastructures import Date
-from ..tools.contact import ContactInfo
-from subject import Subject
+from .person import Person, Gender
+from .datastructures import Date
+from backend.tools.contact import ContactInfo
+from .subject import Subject
 from typing import List
 
 class Teacher(Person):
@@ -18,5 +18,5 @@ class Teacher(Person):
         self.teachingSubjects = teachingSubjects
 
     
-    def __str__(self):
+    def __repr__(self):
         return f"<Student><name>{self.name}</><dob>{self.dob}</><gender>{self.gender}><contactInfos><{self.contactInfos}><id>{self.id}</><teachingSubjects>{self.teachingSubjects}</></>"
