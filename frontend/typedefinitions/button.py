@@ -1,6 +1,7 @@
 from .base import *
 from .window import Window
 import customtkinter as ctk
+from types import FunctionType
 
 class Button(UIElement):
     def __init__(
@@ -9,7 +10,7 @@ class Button(UIElement):
         buttonSize: Vector2Int,
         color: Color,
         hoverColor: Color,
-        activationFunction: function,
+        activationFunction: FunctionType,
         anchor: ElementAlign = ElementAlign.NoAlign,
         useRelativePos: bool = True,
         textLabel: str = "",
